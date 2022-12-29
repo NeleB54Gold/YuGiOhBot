@@ -53,7 +53,7 @@ class YuGiOhAPI {
 	public function request ($method, $args) {
 		if (!isset($this->curl))	$this->curl = curl_init();
 		$url = $this->endpoint . '/' . $method . '?' . http_build_query($args);
-		if (is_a($db, 'Database') && $this->db->configs['redis']['status']) {
+		if (is_a($this->db, 'Database')) {
 			$cache = $this->db->rget($url);
 			if ($r = json_decode($cache, 1)) return $r;
 		}
