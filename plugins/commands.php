@@ -116,17 +116,19 @@ if ($v->chat_type == 'private') {
 # Inline commands
 elseif ($v->update['inline_query']) {
 	$results = [];
+	if (!$v->offset) $v->offset = 0;
+	$limit = 50;
 	$sw_text = $tr->getTranslation('searchInline');
 	$sw_arg = 'inline'; // The message the bot receive is '/start inline'
 	$ygo->r_timeout = 2;
 	# Search Yu-Gi-Oh cards with inline mode
 	if (strpos($v->query, '🔍') === 0) {
-		$cards = $ygo->cardInfo('id', str_replace('🔍', '', $v->query), 50);
+		$cards = $ygo->cardInfo('id', str_replace('🔍', '', $v->query), $limit, $v->offset);
 	} else {
 		if (empty($v->query)) $v->query = ' ';
-		$cards = $ygo->cardInfo('fname', $v->query, 50);
+		$cards = $ygo->cardInfo('fname', $v->query, $limit, $v->offset);
 	}
-	if ($cards['ok']) {
+	if ($cards['ok'] && !empty($cards['result'])) {
 		foreach ($cards['result'] as $id => $card) {
 			$results[] = $bot->createInlinePhoto(
 				$i += 1,
@@ -139,9 +141,12 @@ elseif ($v->update['inline_query']) {
 				$card['card_images'][0]['image_url_small']
 			);
 		}
+		$next = (count($cards['result']) == $limit) ? $v->offset + 1 : false;
+	} else {
+		$next = false;
 	}
 	if (empty($results)) $sw_text = '❌ ' . $tr->getTranslation('noResult');
-	$bot->answerIQ($v->id, $results, $sw_text, $sw_arg);
+	$bot->answerIQ($v->id, $results, $sw_text, $sw_arg, $next);
 }
 
 # Get the chosen results to count stats
