@@ -34,7 +34,7 @@ class YuGiOhAPI {
 			if ($r['data']) {
 				if ($limit) {
 					$limited = [];
-					foreach (range($offset, $limit - 1) as $id) {
+					foreach (range($offset * $limit, ($offset * $limit) + $limit - 1) as $id) {
 						if (isset($r['data'][$id])) $limited[] = $r['data'][$id];
 					}
 					return ['ok' => 1, 'result' => $limited];
