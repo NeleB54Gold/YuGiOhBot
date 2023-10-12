@@ -112,7 +112,11 @@ if ($v->chat_type == 'private') {
 		$bot->deleteMessage($v->chat_id, $v->message_id);
 	}
 }
-
+# Unsupported chats (Auto-leave)
+elseif (in_array($v->chat_type, ['group', 'supergroup', 'channels'])) {
+	$bot->leave($v->chat_id);
+	die;
+}
 # Inline commands
 elseif ($v->update['inline_query']) {
 	$results = [];
