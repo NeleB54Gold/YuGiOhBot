@@ -1,0 +1,29 @@
+{
+    "it": {
+        "startMessage": "<b>Benevento sul Bot Yu-Gi-Oh!<\/>\n<i>Qui puoi trovare carte, ricostruire la tua collezione e vedere le informazioni delle carte.<\/>",
+        "helpMessage": "<b>Inviami il nome o l'ID della tua carta<\/>\n<i>Puoi trovare l'ID numerico in fondo alla carta a sinistra!<\/>",
+        "noResult": "Nessun risultato",
+        "searchInline": "Cerca nel Bot",
+        "aboutMessage": "<b>Informazioni sul Bot<\/>\n*\u20e3 PHP: [0]\n\ud83d\udcf6 Host: <a href='https:\/\/hetzner.cloud\/?ref=tQoUeYbvIstA'>Hetnzer.cloud<\/>\n\ud83d\udce2 Sviluppato da: @NeleBots",
+        "aboutButton": "Informazioni",
+        "helpButton": "Aiuto",
+        "changeLanguage": "Lingua",
+        "tryMeInline": "Prova la modalit\u00e0 inline",
+        "shareButton": "Condividi",
+        "backButton": "Indietro"
+    },
+    "en": {
+        "startMessage": "<b>Welcome to Yu-Gi-Oh Bot!<\/>\n<i>Here you can search for cards, rebuild your collection and view card information.<\/>",
+        "helpMessage": "<b>Send me the your card name or ID<\/>\n<i>You can find the numeric ID in the bottom left of your card!<\/>",
+        "noResult": "No results",
+        "searchInline": "Search in the Bot",
+        "aboutButton": "About",
+        "helpButton": "Help",
+        "aboutMessage": "<b>About this Bot<\/>\n*\u20e3 PHP: [0]\n\ud83d\udcf6 Host: <a href='https:\/\/hetzner.cloud\/?ref=tQoUeYbvIstA'>Hetnzer.cloud<\/>\n\ud83d\udce2 Developed by: @NeleBots",
+        "settingsButton": "Settings",
+        "changeLanguage": "Language",
+        "tryMeInline": "Try the inline mode",
+        "shareButton": "Share",
+        "backButton": "Back"
+    }
+}
